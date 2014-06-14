@@ -42,7 +42,7 @@ func Highlight(code string, lexer string) string {
 	}
 
 	cmd := exec.Command(pygmentsBin, "-l"+lexer, "-fhtml", "-O",
-		fmt.Sprintf("style=%s,noclasses=%s,encoding=utf8", style, noclasses))
+		fmt.Sprintf("style=%s,noclasses=%s,linenos=1,encoding=utf8", style, noclasses))
 	cmd.Stdin = strings.NewReader(code)
 	cmd.Stdout = &out
 	cmd.Stderr = &stderr
